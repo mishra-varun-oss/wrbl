@@ -6,6 +6,9 @@ const router = express.Router();
 
 const login = require(path.join(__dirname, "../middleware/login.js"))
 const db = require(path.join(__dirname, "../tools/db.js"));
+const configs = require(path.join(__dirname, "../tools/configs.js"));
+
+require('dotenv').config(configs.src_config_obj);
 
 router.get('/', (req, res) => {
 	res.render('login');
@@ -36,7 +39,7 @@ router.get('/view', (req, res) => {
 	let q = `SELECT * FROM web_traffic ORDER BY id DESC`;
 	db.query(q, (err, results) => {
 		if (err) throw err;
-		res.render('view_analytics', { username: req.session.username, record: results });
+		res.render('view_analytics', { username: req.session.username, record: results, api_key: process.env.GOOGLE_MAPS_API_KEY });
 	})
 })
 
