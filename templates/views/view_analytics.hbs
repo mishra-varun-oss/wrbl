@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Wrbl Analytics</title>
+		<link rel="stylesheet" href="/css/view_analytics.css">
+	</head>
+
+	<body>
+		<input type="hidden" id="record_input" value="{{{record}}}">
+		<div id="map"></div>
+		<div id="table_container">
+			<table>
+				<thead>
+					<tr>
+						<th>date</th>
+						<th>ip_address</th>
+						<th>path</th>
+						<th>request</th>
+						<th>status</th>
+						<th>user agent</th>
+					</tr>
+				</thead>
+				<tbody id="records_tbody">
+					{{#each record}}
+					<tr>
+						<td>{{this.date}}</td>
+						<td>{{this.ip_address}}</td>
+						<td>{{this.path}}</td>
+						<td>{{this.request}}</td>
+						<td>{{this.status}}</td>
+						<td>{{this.user_agent}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXJY4VMiLrIrr9hUGMOw8QvUOtJM3j6zw&callback=initMap" async defer></script>
+		<script src="/js/view_analytics.js"></script>
+	</body>
+</html>

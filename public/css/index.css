@@ -1,0 +1,17 @@
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+}
+
+.container {
+	height: 100%;
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.container img {
+	height: 500px;
+}
